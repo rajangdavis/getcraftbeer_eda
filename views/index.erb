@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Capstone Ideas</title>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+	<style type="text/css">
+		body{
+			font-family: "Ubuntu Mono";
+			margin:50px;
+		}
+		li{
+			list-style: none;
+		}
+		h1{
+			width:100%;
+			text-align: center;
+			margin:0 auto;
+			top:0;
+			padding: 50px 0;
+			background: white;
+			position: fixed;
+		}
+	</style>
+</head>
+<body>
+<h1>Capstone Ideas</h1>
+<br><br><br><br><br>
+<div>
+	<h2>Beer Recommender based on geolocation and beer preference within Los Angeles</h2>
+	<ul>
+		<li><h3><a href="http://www.recommend.beer/">Basis</a></h3></li>
+		<li><h3>Datasets:</h3><br>
+			<ul>
+				<li>
+					<a href="https://www.beeradvocate.com/place/city/9/">Beer Advocate</a>
+					<ul>
+						<li>name</li>
+						<li>address</li>
+						<li>list of rated beers
+							<ul>
+								<li>reviews of beers => nlp + metrics for recommendation</li>
+								<li>scores</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="https://beerme.com/index.php">Beer Me</a></li>
+				<li><a href="https://www.latlong.net/convert-address-to-lat-long.html">Converting Address to lat, long</a> </li>
+				<!-- <li>Current Location (from browser):<br>
+					<pre>
+						// In the browser
+						navigator.geolocation.getCurrentPosition(function(position) {
+						  console.log(position.coords.latitude, position.coords.longitude);
+						});			
+					</pre>
+				</li> -->
+			</ul>
+		</li>
+		<li><h3>Storage:</h3><a href="https://postgis.net">Backend for location data</a></li>
+		<li><h3>Positives:</h3>I like beer and process is repeatable for other cities</li>
+		<li><h3>Negatives:</h3>Could be nightmare architecturally (steps not entirely clear)</li>
+	</ul>
+</div>
+<br><br><br><br><br>
+<div>
+	<h2>Effect of Twitter Sentiment Analysis and the Financial Markets</h2>
+	<ul>
+		<li><h3><a href="https://blog.twitter.com/official/en_us/topics/insights/2016/twitter-data-and-the-financial-markets.html">Basis</a></h3></li>
+		<li><h3>Datasets:</h3><br>
+			<ul>
+				<li><a href="https://pushshift.io/tag/twitter/">Pushshift Twitter API</a></li>
+				<li><a href="https://developer.twitter.com/content/developer-twitter/en.html">Twitter Developer API</a></li>
+				<li><a href="https://twittercommunity.com/t/get-tweets-with-a-specific-hashtag-from-any-user/62368/5">Twitter Streaming API</a></li>
+				<li><a href="https://www.alphavantage.co/">Realtime Stock lookup's</a>
+					<ul>
+						<li>Historical</li>
+						<li>Realtime</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><h3>Storage:</h3><a href="https://postgresql.org">Postgres with JSON types</a></li>
+		<li><h3>Positives:</h3>Can be very interesting to see both historical AND realtime impact of twitter and financial markets, can turn into product</li>
+		<li><h3>Negatives:</h3>Problem space can very huge, may not have enough background in finance, db schema needs to be planned well in advance</li>
+	</ul>
+</div>
+
+<br><br><br><br><br>
+<div>
+	<h2>Sentiment Analysis/Classification of lyrics by Musical Genres</h2>
+	<ul>
+		<li><h3><a href="http://everynoise.com/genrewords.html">Basis</a></h3></li>
+		<li><h3>Datasets:</h3><br>
+			<ul>
+				<li><a href="http://www.darklyrics.com/">Dark Lyrics</a></li>
+				<li><a href="https://docs.genius.com/">https://docs.genius.com/</a></li>
+			</ul>
+		</li>
+		<li><h3>Storage:</h3><a href="https://postgresql.org">Postgres with JSON types</a></li>
+		<li><h3>Positives:</h3>Can be a tool for songwriters to be more "original" or express themselves better</li>
+		<li><h3>Negatives:</h3>Need to be incredibly specific with genres/artist information, very hard to generalize</li>
+	</ul>
+</div>
+<br><br><br><br><br>
+</body>
+</html>

@@ -1,0 +1,56 @@
+Capstone ideas:
+
+1. Beer Recommender based on geolocation and beer preference within Los Angeles
+	a. Basis: http://www.recommend.beer/
+	b. Datasets (mostly scraping): 
+		i. Beer Advocate: https://www.beeradvocate.com/place/city/9/
+			a. name
+			b. address
+			c. list of rated beers
+				1. reviews of beers => nlp + metrics for recommendation
+				2. scores
+		ii. Beer Me:  https://beerme.com/index.php
+		ii. Converting Address to lat, long: https://www.latlong.net/convert-address-to-lat-long.html
+		iii. Current Location (from browser):
+			// In the browser
+			navigator.geolocation.getCurrentPosition(function(position) {
+			  console.log(position.coords.latitude, position.coords.longitude);
+			});
+		iv. Backend for location data: https://postgis.net/
+	c. Positives: I like beer and process is repeatable for other cities
+	d. Negatives: Could be nightmare architecturally (steps not entirely clear)
+
+
+
+
+
+
+
+
+2. Effect of Twitter Sentiment Analysis and the Financial Markets
+	a. Basis: https://blog.twitter.com/official/en_us/topics/insights/2016/twitter-data-and-the-financial-markets.html
+	b. Datasets (mostly API's):
+		i. Twitter Developer API
+		ii. Twitter Streaming API https://twittercommunity.com/t/get-tweets-with-a-specific-hashtag-from-any-user/62368/5
+		iii. Realtime Stock lookup's: https://www.alphavantage.co/
+			a. API KEY: 6KV54TWD19DZHC9V
+		iv. Backend: Postgres with json typing
+	c. Positives: Can be very interesting to see both historical AND realtime impact of twitter and financial markets, can turn into product
+	d. Negatives: Problem space can very huge, may not have enough background in finance, db schema needs to be planned well in advance
+
+
+
+
+
+
+
+
+
+
+3. Sentiment Analysis/Classification of lyrics by Musical Genres
+	a. Basis: http://everynoise.com/genrewords.html
+	b. Datasets: (scraping lyrics sites and API's)
+		i. Dark Lyrics: http://www.darklyrics.com/
+		ii. Genius API: https://docs.genius.com/
+	c. Positives: Can be a tool for songwriters to be more "original" or express themselves better
+	d. Negatives: Need to be incredibly specific with genres/artist information
