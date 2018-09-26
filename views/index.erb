@@ -1,106 +1,215 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Capstone Ideas</title>
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
-	<style type="text/css">
-		body{
-			font-family: "Ubuntu Mono";
-			margin:50px;
-		}
-		li{
-			list-style: none;
-		}
-		h1{
-			width:100%;
-			text-align: center;
-			margin:0 auto;
-			top:0;
-			padding: 50px 0;
-			background: white;
-			position: fixed;
-		}
-	</style>
+	<title>Capstone Progress</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/reveal.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/white.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 <body>
-<h1>Capstone Ideas</h1>
-<br><br><br><br><br>
-<div>
-	<h2>Beer Recommender based on geolocation and beer preference within Los Angeles</h2>
-	<ul>
-		<li><h3><a href="http://www.recommend.beer/">Basis</a></h3></li>
-		<li><h3>Datasets:</h3><br>
+<div class="reveal">
+	<div class="slides">
+		<section>
+			<h1 class="large">Capstone Progress</h1>
+		</section>
+		<section>
+			<h2 class="large">Beer/Brewery Recommender based on geolocation and beer preference within Los Angeles (and potentially other cities)</h2>
+		</section>
+		<section>
+			<h2 class="large">
+				Datasets
+			</h2>
+			<br><br>
 			<ul>
 				<li>
-					<a href="https://www.beeradvocate.com/place/city/9/">Beer Advocate</a>
+					<h2>Beer Advocate Reviews (only scores)</h2>
 					<ul>
-						<li>name</li>
-						<li>address</li>
-						<li>list of rated beers
-							<ul>
-								<li>reviews of beers => nlp + metrics for recommendation</li>
-								<li>scores</li>
-							</ul>
+						<li>
+							<br>
+							Size: 1,586,614 reviews with 13 features
 						</li>
 					</ul>
 				</li>
-				<li><a href="https://beerme.com/index.php">Beer Me</a></li>
-				<li><a href="https://www.latlong.net/convert-address-to-lat-long.html">Converting Address to lat, long</a> </li>
-				<!-- <li>Current Location (from browser):<br>
-					<pre>
-						// In the browser
-						navigator.geolocation.getCurrentPosition(function(position) {
-						  console.log(position.coords.latitude, position.coords.longitude);
-						});			
-					</pre>
-				</li> -->
-			</ul>
-		</li>
-		<li><h3>Storage:</h3><a href="https://postgis.net">Backend for location data</a></li>
-		<li><h3>Positives:</h3>I like beer and process is repeatable for other cities</li>
-		<li><h3>Negatives:</h3>Could be nightmare architecturally (steps not entirely clear)</li>
-	</ul>
-</div>
-<br><br><br><br><br>
-<div>
-	<h2>Effect of Twitter Sentiment Analysis and the Financial Markets</h2>
-	<ul>
-		<li><h3><a href="https://blog.twitter.com/official/en_us/topics/insights/2016/twitter-data-and-the-financial-markets.html">Basis</a></h3></li>
-		<li><h3>Datasets:</h3><br>
-			<ul>
-				<li><a href="https://pushshift.io/tag/twitter/">Pushshift Twitter API</a></li>
-				<li><a href="https://developer.twitter.com/content/developer-twitter/en.html">Twitter Developer API</a></li>
-				<li><a href="https://twittercommunity.com/t/get-tweets-with-a-specific-hashtag-from-any-user/62368/5">Twitter Streaming API</a></li>
-				<li><a href="https://www.alphavantage.co/">Realtime Stock lookup's</a>
+				<li>
+					<h2>Beer Advocate Reviews (scores with text)</h2>
 					<ul>
-						<li>Historical</li>
-						<li>Realtime</li>
+						<li>
+							<br>
+							Size: 528,870 reviews with 13 features
+						</li>
+					</ul>
+				</li>
+				<li>
+					<h2>Scraped Beer Advocate list of US breweries</h2>
+					<ul>
+						<li>
+							<br>
+							Size: 7232 reviews with 9 features
+						</li>
 					</ul>
 				</li>
 			</ul>
-		</li>
-		<li><h3>Storage:</h3><a href="https://postgresql.org">Postgres with JSON types</a></li>
-		<li><h3>Positives:</h3>Can be very interesting to see both historical AND realtime impact of twitter and financial markets, can turn into product</li>
-		<li><h3>Negatives:</h3>Problem space can very huge, may not have enough background in finance, db schema needs to be planned well in advance</li>
-	</ul>
+		</section>
+		<section>
+			<section>
+				<h2 class="large">
+					Beer Advocate Reviews (only scores) <br> Top 5 most reviewed Beer Styles
+				</h2>
+				<br>
+				<br>
+				<ul>
+					<li>American IPA</li>
+					<li>American Double / Imperial IPA</li>
+					<li>American Pale Ale (APA)</li>
+					<li>Russian Imperial Stout</li>
+					<li>American Double / Imperial Stout</li>
+				</ul>
+			</section>
+			<section>
+				<h2 class="large">
+					Beer Advocate Reviews (only scores) <br> Top 5 most reviewed Breweries
+				</h2>
+				<br>
+				<br>
+				<ul>
+					<li>Boston Beer Company (Samuel Adams)</li>
+					<li>Dogfish Head Brewery</li>
+					<li>Stone Brewing Co.</li>
+					<li>Sierra Nevada Brewing Co.</li>
+					<li>Bell's Brewery, Inc.</li>
+				</ul>
+			</section>
+			<section>
+				<h2 class="large">
+					Beer Advocate Reviews (only scores) <br> Top 5 most reviewed Beers
+				</h2>
+				<br>
+				<br>
+				<ul>
+					<li>Dogfish Head Brewery - 90 Minute IPA</li>
+					<li>North Coast Brewing Co. - Old Rasputin Russian Imperial Stout</li>
+					<li>Sierra Nevada Brewing Co. - Sierra Nevada Celebration Ale</li>
+					<li>Bell's Brewery, Inc. - Two Hearted Ale</li>
+					<li>Stone Brewing Co.  - Arrogant Bastard Ale</li>
+				</ul>
+			</section>
+			<section>
+				<img src="/images/heatmap.png">
+			</section>
+			<section>
+				<h2 class="large">
+					Beer Advocate Reviews (only scores) 
+				</h2><br>
+				<h3 class="large">Potential issues:</h3>
+				<br>
+				<ul>
+					<li>Missing Data:</li>
+					<img src="/images/issues_1.PNG">
+				</ul>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h2 class="large">
+					Beer Advocate Reviews (scores with text)
+				</h2>
+				<br>
+				<br>
+				<h3 class="large">
+					<strong>TODO:</strong> Look at words counts... sorry
+				</h3>
+			</section>
+			<section>
+				<h2 class="large">
+					Beer Advocate Reviews (scores with text) 
+				</h2><br>
+				<h3 class="large">Potential issues:</h3>
+				<br>
+				<br>
+				<ul>
+					<li>Missing Data:</li>
+					<img src="/images/issues_2.PNG">
+				</ul>
+			</section>
+		</section>
+		<section>
+			<section>
+				<h2 class="large">
+					Beer Advocate Breweries
+				</h2>
+				<br>
+				<br>
+				<h3 class="large">
+					<strong>TODO:</strong>
+					Trying to understand how to scrape reviews without getting banned/being a jerk
+				</h3>
+			</section>
+			<section>
+				<h2 class="large">
+					Beer Advocate Breweries
+				</h2>
+				<br>
+				<br>
+				<h3 class="large">
+					Top 10 states with Breweries
+				</h3>
+				<br><br>
+				<ul class="smaller">
+					<li><strong>California</strong> - <span class="pull-right">850</span></li>
+					<li><strong>New York</strong> - <span class="pull-right">405</span></li>
+					<li><strong>Washington</strong> - <span class="pull-right">382</span></li>
+					<li><strong>Colorado</strong> - <span class="pull-right">374</span></li>
+					<li><strong>Pennsylvania</strong> - <span class="pull-right">346</span></li>
+					<li><strong>Michigan</strong> - <span class="pull-right">314</span></li>
+					<li><strong>Florida</strong> - <span class="pull-right">297</span></li>
+					<li><strong>Texas</strong> - <span class="pull-right">281</span></li>
+					<li><strong>North Carolina</strong> - <span class="pull-right">273</span></li>
+					<li><strong>Oregon</strong> - <span class="pull-right">268</span></li>
+				</ul>
+			</section>
+			<section>
+				<h2 class="large">
+					Beer Advocate Breweries
+				</h2>
+				<br>
+				<br>
+				<h3 class="large">
+					Top 5 brewery feature sets
+				</h3>
+				<br><br>
+				<ul>
+					<li><strong>Bar, Beer-to-go</strong> - <span class="pull-right">2141</span></li>
+					<li><strong>Bar, Eatery, Beer-to-go</strong> - <span class="pull-right">1571</span></li>
+					<li><strong>Bar, Eatery</strong> - <span class="pull-right">1169</span></li>
+					<li><strong>Brewery ONLY</strong> - <span class="pull-right">989</span></li>
+					<li><strong>Bar</strong> - <span class="pull-right">920</span></li>
+				</ul>
+			</section>
+			<section>
+				<h2 class="large">
+					Beer Advocate Breweries
+				</h2><br>
+				<h3 class="large">Potential issues:</h3>
+				<br>
+				<br>
+				<ul>
+					<li>A $H!T ton of  Data to scrape:
+						<br><br>
+						<ul>
+							<li>7000 breweries * ~ 276 beers * ~ 28 reviews</li>
+							<br><br>
+							<h1 class="large">~ 54,096,000 reviews</h1>
+						</ul>
+					</li>
+				</ul>
+			</section>
+		</section>
+	</div>
 </div>
-
-<br><br><br><br><br>
-<div>
-	<h2>Sentiment Analysis/Classification of lyrics by Musical Genres</h2>
-	<ul>
-		<li><h3><a href="http://everynoise.com/genrewords.html">Basis</a></h3></li>
-		<li><h3>Datasets:</h3><br>
-			<ul>
-				<li><a href="http://www.darklyrics.com/">Dark Lyrics</a></li>
-				<li><a href="https://docs.genius.com/">https://docs.genius.com/</a></li>
-			</ul>
-		</li>
-		<li><h3>Storage:</h3><a href="https://postgresql.org">Postgres with JSON types</a></li>
-		<li><h3>Positives:</h3>Can be a tool for songwriters to be more "original" or express themselves better</li>
-		<li><h3>Negatives:</h3>Need to be incredibly specific with genres/artist information, very hard to generalize</li>
-	</ul>
-</div>
-<br><br><br><br><br>
+<script src="/js/reveal.min.js"></script>
+<script>
+	Reveal.initialize();
+</script>
 </body>
 </html>

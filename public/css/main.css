@@ -1,0 +1,38 @@
+body{
+	font-family: "Source Code Pro" !important;
+}
+
+li{
+	list-style: none !important;
+}
+li > h2{
+	font-weight: 600 !important;
+}
+
+section > ul > li > ul > li{
+	font-size: 30px !important;
+}
+
+section > ul > li{
+	font-size: 36px !important;
+	margin-bottom: 24px !important;
+}
+
+section > ul.smaller > li{
+	font-size: 30px !important;
+}
+
+h1.large{
+	font-size: 54px;
+	font-weight: 900;
+}
+h2.large{
+	font-size: 42px;
+	font-weight: 700;
+}
+h3.large{
+	font-size: 36px;
+}
+strong{
+	font-weight: bold !important;
+}
