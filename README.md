@@ -1,27 +1,43 @@
-# Beer Recommender
+# Brew Recommender
 
 [Current progress is located here](https://warm-plateau-97950.herokuapp.com/).
 
 # Data Science Opportunity
 
-Craft beer retail sales for 2017 resulted in [$26 billion dollars in total sales in the United States alone](https://www.statista.com/topics/1806/craft-beer-in-the-us/).
+Craft beer sales for 2017 resulted in [$26 billion dollars in total sales in the United States alone](https://www.statista.com/topics/1806/craft-beer-in-the-us/).
 
-Providing a recommendation engine based on latitude and long
+Because of this growing trend, the number of breweries has steadily [increased 15.5% over the past 6 years](https://www.brewersassociation.org/statistics/number-of-breweries/).
 
+As the number of breweries increases, the ability for consumers to make decisions about what beer they purchase becomes full of noise. There is some discussion that [the abundance of craft beer can fatigue beer enthusiasts](https://vinepair.com/articles/craft-beers-post-snob-era-is-here/).
+
+To me, providing good, *actionable* recommendations for beer is crucial for alleviating this fatigue. 
+
+[There is prior work with beer recommendation systems](http://www.recommend.beer/analysis/); however, providing a recommendation system that can recommend beers a user may like from breweries that are near by adds tremendous value in that a user can act on the recommendation provided.
 
 # Current Timeline
 
-- **9/30** - Have a plan for scraping URL's
+**9/30** 
+	- Submit another API access request for Untappd's API
+		- If a user currently has Untappd installed, I can make recommendations based on their favorite beers
+		- I can perform collaborative filtering based on user preferences and check-ins
+		- If a review with text is given
+	- Have a plan for scraping URL's
+	- Review [scraping services](https://www.scrapehero.com/web-scraping-cloud-providers/)
+	- Review [ScrapingHub](https://scrapinghub.com/scrapy-cloud)
+		- [Crawlera *might* be the best solution](https://scrapinghub.com/crawlera)
+    - Calculate costs of AWS/Terraform for scraping/parallelization of resources
     - Review [Terraform](https://www.hashicorp.com/products/terraform)
     - Review [Amazon Simple Queue](https://aws.amazon.com/sqs/)
     	- [Terraform config for Amazon Simple Queue](https://www.terraform.io/docs/providers/aws/r/sqs_queue.html)
-    - Calculate costs of AWS/Terraform for scraping/parallelization of resources
     - Review [AWS Lambda for use as a proxy](https://github.com/dan-v/awslambdaproxy)
     	- [Terraform config for AWS Lambda](https://www.terraform.io/docs/providers/aws/r/lambda_function.html)
 - **10/3** - Complete as much initial EDA as possible, create a progress report
 - **10/7** - Have a Database up and running and accessible via the web
     - Figure out what kind of front-end makes sense
+
 - **10/10** - Build front-end or use Twilio
+	- Do a sanity check to make sure that you can deliver your project on time
+
 - **10/14** - Make Database Accessible from outside resources
     - Build a REST API
     - Build a GraphQL endpoint (optional)
