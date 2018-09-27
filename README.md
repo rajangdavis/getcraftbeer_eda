@@ -20,7 +20,7 @@ To me, providing good, *actionable* recommendations for beer is crucial for alle
 	- Submit another API access request for Untappd's API
 		- If a user currently has Untappd installed, I can make recommendations based on their favorite beers
 		- I can perform collaborative filtering based on user preferences and check-ins
-		- If a review with text is given
+		- Possibly perform NLP analysis on text reviews
 	- Have a plan for scraping URL's
 	- Review [scraping services](https://www.scrapehero.com/web-scraping-cloud-providers/)
 	- Review [ScrapingHub](https://scrapinghub.com/scrapy-cloud)
