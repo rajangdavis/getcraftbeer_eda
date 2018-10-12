@@ -2,17 +2,15 @@ __________________________________________
 
 PRIORITY
 __________________________________________
-- Use SQLAlchemy to identify reviews that can work with database on breweries and beer reviews
-    - 1.5 million no text reviews
-    - .5 million reviews with text
+
 - Export to CSV the reviews that can work with the database
     - Make sure that it can be joined based on beer ID's
 - Create a migration for Reviews
 	=> import locally
 	=> import remote
 - Modify Schemas for
-	- Beers =>
-	-
+	- Beers => ba_links to id
+	- Breweries => ba_links to id
 __________________________________________
 
 TODO
@@ -62,4 +60,6 @@ summary statistics for user ratings
 	- max
 	- count of ratings
 
-
+- Use SQLAlchemy to identify reviews that can work with database on breweries and beer reviews
+    - 1.5 million no text reviews
+    - .5 million reviews with text
