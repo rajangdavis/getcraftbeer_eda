@@ -2,15 +2,26 @@ __________________________________________
 
 PRIORITY
 __________________________________________
+https://www.youtube.com/watch?v=tAxrlAVw-Tk
 
-- Export to CSV the reviews that can work with the database
-    - Make sure that it can be joined based on beer ID's
-- Create a migration for Reviews
-	=> import locally
-	=> import remote
-- Modify Schemas for
-	- Beers => ba_links to id
-	- Breweries => ba_links to id
+Schedule meeting with Doug
+	=> Wednesday at the Latest
+
+Modify how the server side app works
+	=> takes certain query parameters
+	=> Clean up the params
+	=> Passes into SQL query
+    
+User ratings will be extremely useful
+=> ratings based on user similarity
+
+Compare against 'Beer Advocate Reviews (only scores)'
+	=> beers with 100 ratings
+
+Beer Advocate Reviews (scores with text)
+	=> beers with 100 ratings
+    
+Write a script for updating lat long data of breweries
 __________________________________________
 
 TODO
@@ -20,26 +31,6 @@ LOOK UP RECOMMENDER SYSTEM LESSONS
 	=> review cosine similarity
 	=> Collaborative Filtering
 	=> Full-text search
-
-user ratings will be extremely useful
-=> ratings based on user similarity
-
-Compare against 'Beer Advocate Reviews (only scores)'
-	=> beers with 100 ratings
-
-Beer Advocate Reviews (scores with text)
-	=> beers with 100 ratings
-
-Modify how the server side app works
-	=> takes certain query parameters
-	=> Clean up the params
-	=> Passes into SQL query
-
-Schedule meeting with Dave
-	=> End of week
-
-Schedule meeting with Doug
-	=> End of week
 
 T-Stochastic Neighborhood Embedding
 TSNE plots
@@ -63,3 +54,16 @@ summary statistics for user ratings
 - Use SQLAlchemy to identify reviews that can work with database on breweries and beer reviews
     - 1.5 million no text reviews
     - .5 million reviews with text
+
+- Export to CSV the reviews that can work with the database
+    - Make sure that it can be joined based on beer ID's
+- Create a migration for Reviews
+	=> import locally
+	=> import remote
+- Modify Schemas for
+	- Beers => ba_links to id
+	- Breweries => ba_links to id
+    
+Schedule meeting with Dave
+	=> End of week
+    
