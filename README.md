@@ -18,34 +18,58 @@ To me, providing good, *actionable* recommendations for beer is crucial for alle
 
 # Current Timeline
 
-- **9/30** 
-	- Submit another API access request for Untappd's API
-		- If a user currently has Untappd installed, I can make recommendations based on their favorite beers
-		- I can perform collaborative filtering based on user preferences and check-ins
-		- Possibly perform NLP analysis on text reviews
-	- Have a plan for scraping URL's
-	- Review [scraping services](https://www.scrapehero.com/web-scraping-cloud-providers/)
-	- Review [ScrapingHub](https://scrapinghub.com/scrapy-cloud)
-		- [Crawlera *might* be the best solution](https://scrapinghub.com/crawlera)
-    - Calculate costs of AWS/Terraform for scraping/parallelization of resources
-    - Review [Terraform](https://www.hashicorp.com/products/terraform)
-    - Review [Amazon Simple Queue](https://aws.amazon.com/sqs/)
-    	- [Terraform config for Amazon Simple Queue](https://www.terraform.io/docs/providers/aws/r/sqs_queue.html)
-    - Review [AWS Lambda for use as a proxy](https://github.com/dan-v/awslambdaproxy)
-    	- [Terraform config for AWS Lambda](https://www.terraform.io/docs/providers/aws/r/lambda_function.html)
+- **9/30** I ended up scraping Beer Advocate :/
+	- ~~Have a plan for scraping URL's
+	- ~~Review [scraping services](https://www.scrapehero.com/web-scraping-cloud-providers/)
+	- ~~Review [ScrapingHub](https://scrapinghub.com/scrapy-cloud)
+		- ~~[Crawlera *might* be the best solution](https://scrapinghub.com/crawlera)
+    - ~~Calculate costs of AWS/Terraform for scraping/parallelization of resources
+    - ~~Review [Terraform](https://www.hashicorp.com/products/terraform)
+    - ~~Review [Amazon Simple Queue](https://aws.amazon.com/sqs/)
+    	- ~~[Terraform config for Amazon Simple Queue](https://www.terraform.io/docs/providers/aws/r/sqs_queue.html)
+    - ~~Review [AWS Lambda for use as a proxy](https://github.com/dan-v/awslambdaproxy)
+    	- ~~[Terraform config for AWS Lambda](https://www.terraform.io/docs/providers/aws/r/lambda_function.html)
+- **10/7** - ~~Have a Database up and running and accessible via the web
+
+### To do
 - **10/3** - Complete as much initial EDA as possible, create a progress report
-- **10/7** - Have a Database up and running and accessible via the web
-    - Figure out what kind of front-end makes sense
-
-- **10/10** - Build front-end or use Twilio
-	- Do a sanity check to make sure that you can deliver your project on time
-
-- **10/14** - Make Database Accessible from outside resources
-    - Build a REST API
-    - Build a GraphQL endpoint (optional)
 - **10/17** - Complete Technical Write-up
 - **10/21** - Finish Project Deliverables
 	- Clean README
 	- Clean Notebook
 	- Data Dictionary
 	- Some front-end for the App
+
+### Another time
+- **10/10** - Build front-end or use Twilio
+	- Do a sanity check to make sure that you can deliver your project on time
+
+- **10/14** - Make Database Accessible from outside resources
+    - Build a REST API
+    - Build a GraphQL endpoint
+    
+# Technical Report
+
+### 0. Features
+
+
+### 1. Obtaining data
+
+I obtained data in a few different flavors:
+    1. Datasets from data.world
+        i. 
+        ii.
+    2. Via Scraping using the axios and Cheerio libraries NodeJS
+        i. [Scripts are located here](https://github.com/rajangdavis/ba_scrape)
+    3.
+
+### 2. Scrubbing data
+
+### 3. Exploring data
+
+### 4. Modeling data
+
+### 5. Interpreting data
+
+### 6. Further Exploration
+Looking at network effects
