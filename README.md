@@ -30,7 +30,6 @@ To me, providing good, *actionable* recommendations for beer is crucial for alle
     - ~~Review [AWS Lambda for use as a proxy](https://github.com/dan-v/awslambdaproxy)
     	- ~~[Terraform config for AWS Lambda](https://www.terraform.io/docs/providers/aws/r/lambda_function.html)
 - **10/7** - ~~Have a Database up and running and accessible via the web
-
 ### To do
 - **10/3** - Complete as much initial EDA as possible, create a progress report
 - **10/17** - Complete Technical Write-up
@@ -50,17 +49,33 @@ To me, providing good, *actionable* recommendations for beer is crucial for alle
     
 # Technical Report
 
-### 0. Features
+### 0. Data Dictionary and Features
+
 
 
 ### 1. Obtaining data
 
 I obtained data in a few different flavors:
     1. Datasets from data.world
-        i. 
-        ii.
+        i. [1.5 million reviews with scores only](https://data.world/socialmediadata/beeradvocate)
+        | Features           | Definition                                    |
+        |--------------------|-----------------------------------------------|
+        | brewery_id         | ID of brewery                                 |
+        | brewery_name       | Name of brewery where beer was made           |
+        | review_time        | creation date of review in Unix time          |
+        | review_overall     | Overall score                                 |
+        | review_aroma       | Score for smell of beers                      |
+        | review_appearance  | Score for appearance of beer                  |
+        | review_profilename | Profile name of the user that made the review |
+        | beer_style         | style of beer in string format                |
+        | review_palate      | Score for mouthfeel                           |
+        | review_taste       | Score for taste of beer                       |
+        | beer_name          | Name of beer being reviewed                   |
+        | beer_abv           | Alcohol percentage of beer                    |
+        | beer_beerid        | ID of beer being reviewed                     |
+        ii.[](https://data.world/petergensler/beer-advocate-reviews)
     2. Via Scraping using the axios and Cheerio libraries NodeJS
-        i. [Scripts are located here](https://github.com/rajangdavis/ba_scrape)
+        i. [Scripts are located here](https://github.com/rajangdavis/ba_scrape/tree/master/scrape_extract_scripts)
     3.
 
 ### 2. Scrubbing data

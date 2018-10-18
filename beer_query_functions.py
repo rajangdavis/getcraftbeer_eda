@@ -30,8 +30,6 @@ def count_vect_for_beer(beer):
     AND beers.name = ''{beer}'';
     """.strip()
 
-    print(inner_query)
-
     full_text_search ="""
     SELECT word, ndoc, nentry
     FROM 
