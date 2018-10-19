@@ -273,7 +273,7 @@ I could have scraped the entirety of my dataset from Beer Advocate; however, I w
                     </tr>
                     <tr>
                         <td>review_palate</td>
-                        <td>Score for mouthfeel</td>
+                        <td>Score for mouth feel</td>
                     </tr>
                     <tr>
                         <td>review_taste</td>
@@ -414,16 +414,102 @@ Scrubbing data is still *technically* in process. Areas that need to be improved
 1. All of the text data should be cleaned up to use UTF8. This is incredibly evident with the beer style descriptions as they will sometimes appear corrupted when working in pandas. This is less evident when working with data on Postgres directly.
 2. There are is some level of duplicated data within the reviews. I have done my best to address this as much as possible (); however, I have identified at least 125 beers with slightly more reviews in the database than they should.
 3. Scrubbing and merging of Datasets from [data.world](https://data.world) are covered in [this notebook](notebooks/Joining%20Datasets.ipynb)
+4. There is a lot of missing values for the review text; however, that is the nature of how Beer Advocate allows for beers.
+
+As far as typing/data consistency is concerned, I am not too worried given that I have the data stored on a database.
 
 ### 4. Exploring data
 
 Most of my EDA was performed using [Postgres directly](sql_queries.sql).
+Most of my EDA was performed using [Postgres directly](notebooks/Data%20Visualization.ipynb).
+Most of my EDA was performed using [Postgres directly](notebooks/Data%20Visualization.ipynb).
 
-### 5. Modeling data
+### 5. Recommendation System Architecture
 
-### 6. Interpreting data
+This is still in progress; however, there are a few key ideas that I want to take advantage of in building out my recommendation system:
+
+1. [Client-Server Architecture](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) - This allows me to orchestrate the mechanisms of the recommendations such that calculations for Cosine Simularity and Term Frequency Inverse Document Frequency can be pushed to the user. This simplifies most of the work of the server in that all it needs to do is be a query interface.
+
+2. [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) - This API allows browsers to get accurate GPS positioning for mobile and desktop clients. The other advantage of using GPS is that it limits the scope of calculation.
+
+3. [Postgres Fulltext Search](https://www.postgresql.org/docs/9.5/static/textsearch.html) - This is a feature of Postgres that I was not aware of when planning for this project; however, this feature provides several advantages that add a lot of value to my recommendation system.
+
+Fulltext Search works by taking a document, lower casing all of the featuress, removes [stop words](https://en.wikipedia.org/wiki/Stop_words), [stem words](https://en.wikipedia.org/wiki/Stemming) to their base [lexeme](https://en.wikipedia.org/wiki/Lexeme), and providing the position of terms within the given document.
+
+The result is a custom datatype called a ['ts_vector'](https://www.postgresql.org/docs/10/static/datatype-textsearch.html):
+
+```sql
+SELECT 'a:1 fat:2 cat:3 sat:4 on:5 a:6 mat:7 and:8 ate:9 a:10 fat:11 rat:12'::tsvector;
+                              tsvector
+-------------------------------------------------------------------------------
+ 'a':1,6,10 'and':8 'ate':9 'cat':3 'fat':2,11 'mat':7 'on':5 'rat':12 'sat':4
+
+```
+
+The benefit of fulltext search for architecting a recommendation system is two-fold:
+1. The ability to search text within locally reviewed breweries to limit the search space of a user to terms that the user wishes to match against.
+
+2. Provides the basis for calculating Cosine Simularity and Term Frequency Inverse Document Frequency. Here are python and node examples of how Cosine Simularity can be calculated using ts_vectors:
+```python
+# https://stackoverflow.com/questions/41827983/right-way-to-calculate-the-cosine-similarity-of-two-word-frequency-dictionaries
+import math
+# borrowed from
+# https://stackoverflow.com/questions/41827983/right-way-to-calculate-the-cosine-similarity-of-two-word-frequency-dictionaries
+def cosine_dic(dic1,dic2):
+    numerator = 0
+    dena = 0
+    for key1,val1 in dic1.items():
+        numerator += val1*dic2.get(key1,0)
+        dena += val1*val1
+    denb = 0
+    for val2 in dic2.values():
+        denb += val2*val2
+    return numerator/math.sqrt(dena*denb)
+
+# These are strigified ts_vectors from postgres
+review_text_vectors = [
+"'22':105 'aftertast':93 'american':41 'auster':90 'beer':98 'bitter':92 'bottl':107 'breweri':111 'brown':5,42 'burnt':27 'chaser':99 'clear':1 'club':81 'coffe':24 'dark':2 'driest':40 'duvel':12 'els':102 'ever':45 'faint':17 'faintest':31 'flavor':28,80 'foam':9 'get':48 'leav':94 'lot':25 'malti':32 'mean':69 'modest':8 'must':35 'nice':73 'note':33 'nutti':58 'one':37 'overal':83 'oz':106 'plain':86 'purchas':108 'rather':49 'red':4 'red-brown':3 'sharp':50 'sip':53 'slight':57 'soda':82 'someth':101 'spritzi':61 'straightforward':88 'taproom':112 'tast':46,59 'tongu':64 'tulip':13 'vanilla':20 've':44 'want':96 'way':74 'whiff':18 'yesterday':22",
+"'bbq':25 'beach':28 'bitter':8 'bt':23 'chocol':14 'coffe':4,20 'dark':13 'enjoy':21 'hop':10 'huntington':27 'lot':2,16 'malt':18 'one':7 'recommend':29 'wow':1",
+
+"'a-clear':1 'amber':4 'balanc':31 'bitter':38 'bodi':42 'breweri':55 'carbon':6,44 'citrus':13,27 'clear':3 'dirt':14,28 'drink':46 'earthi':12,26 'easi':45 'end':35 'finger':8 'good':37 'great':50 'head':9 'hop':17 'ipa':51 'littl':58 'local':54 'lot':15 'm':40 'm-medium':39 'medium':41 'nose':24 'note':29 'o':48 'o-a':47 'one':7 'pleasant':69 's-earthi':10 'similar':21 't-veri':18 'togeth':32 'tri':62 'turn':66 'worri':59",
+"'ale':49 'almost':6 'amber':4 'bad':24 'basic':46 'bubbl':12 'carbon':9 'citrus':19,30 'complex':37 'consequ':14 'drink':65 'easi':63 'floral':21 'get':29 'go':57 'hop':22 'ipa':53 'isn':34 'lace':16 'line':43 'lot':56 'much':36 'nose':17 'opaqu':3 'orang':31 'pale':48 'pour':1 'rather':50 'simpl':27 'specif':32 'starter':47 'tast':25 'virtual':10 'visibl':8"
+]
+
+# this woa made to parse teh dicioinaries
+def clean_vectors(review_text_vectors):
+    count_dicts = []
+    for rtv in review_text_vectors:
+        split_terms = [ r.replace("'","").split(":")  for r  in rtv.split(" ")]
+        count_dicts.append({term[0]: len(term[1].split(",")) for term in split_terms}) 
+    return count_dicts
+
+count_dicts = clean_vectors(review_text_vectors )
+
+matrix = []
+for cd in count_dicts:
+    row = []
+    for cdl in count_dicts:
+        row.append(cosine_dic(cd, cdl))
+    matrix.append(row)
+
+print(matrix)
+
+# [
+#   [1.0, 0.18661690879115475, 0.10264286388534141, 0.10042266465917388],
+#   [0.18661690879115475, 1.0, 0.1527830828380352, 0.10762440050012628],
+#   [0.10264286388534141, 0.1527830828380352, 1.0, 0.29926601608548503],
+#   [0.10042266465917388, 0.10762440050012628, 0.29926601608548503, 1.0]
+# ]
+```
+
+By transforming ts_vectors into strings and then dictionaries, calculating text simularities between reviews can be efficiently calculated without storing redudant information.
+
+I am planning on revealing a prototype on 10/22 that will layer full-text search,  cosine simularities of scores, cosine simularities of count vectors, cosine simularities with term frequency inverse document frequency factored in. The link to the prototype can be found [here](https://shielded-brushlands-72807.herokuapp.com/).
+
 
 ### 6. Further Exploration
     - Looking at network model
+    - More EDA
+    - Collaborative filtering
     - Build a REST API
     - Build a GraphQL endpoint
