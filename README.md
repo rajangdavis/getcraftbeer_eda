@@ -91,7 +91,7 @@ The dataset was normalized into 4 tables on a Postgres server:
     </tr>
 </table>
 
-2. **Beer** Styles - 112 styles of beer
+2. **Beer Styles** - 112 styles of beer
 <table>
     <tr>
         <th>Features</th>
@@ -226,6 +226,8 @@ The dataset was normalized into 4 tables on a Postgres server:
 ## 2. Obtaining data
 
 I obtained publicly available datasets from [ data.world ](https://data.world) and scraped Beer Advocate for beer, brewery, beer style, and review information. I acquired geographic information using the addresses provided by Beer Advocate and utilizing the [ OpenCage Geocoder API ](https://opencagedata.com/api) for deriving coordinates for each brewery.
+
+I could have scraped the entirety of my dataset from Beer Advocate; however, I wanted to avoid this because I don't like the idea of 
 <br>
 <br>Here is a break down of the datasets and the scripts I used for scraping beer advocate data:
 <ol>
@@ -355,7 +357,7 @@ I obtained publicly available datasets from [ data.world ](https://data.world) a
         </ol>
     </li>
     <li>
-        I scraped <a href="beeradvocate.com">Beer Advocate</a> using the <a href="https://www.npmjs.com/package/axios">axios</a> and <a href="https://cheerio.js.org/">cheerio</a> libraries from the NodeJS ecosystem. <a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts">Scripts are located here</a>. Here is a brief explanation of what each script does:
+        I scraped <a href="beeradvocate.com">Beer Advocate</a> using the <a href="https://www.npmjs.com/package/axios">axios</a> and <a href="https://cheerio.js.org/">cheerio</a> libraries from the NodeJS ecosystem. <a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts">Scripts are located here</a>.<br><br>Here is a brief explanation of what each script does:
         <table>
             <tr>
                 <th>Script Name</th>
@@ -394,12 +396,12 @@ I obtained publicly available datasets from [ data.world ](https://data.world) a
                 <td>This script utilized the <a href="https://opencagedata.com/api">OpenCage Geocoder API</a> to </td>
             </tr>
             <tr>
-                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_beer_html.js">scrape_beer_html.js</a></td>
-                <td>This script contains a module I wrote for scraping beer review scores with and without review text from Beer Advocate.<br><br>The structure of the HTML for these reviews was incredibly difficult to scrape given that some reviews only had an overall score, a set of scores, or scores with a text review. Additionally, when review text was present, it was structured between elements which makes it difficult to scrape without getting text from other elements within the HTML.<br><br>While using <a href="https://en.wikipedia.org/wiki/XPath">XPath selectors</a> is a standard work around, the variable nature of the HTML structure made it problematic to utilize.<br><br>My work around was to grab the text in a way that I could preserve the original structure of the HTML and convert the text nodes into a list/array. Because the overall score would always be at the top and the username and the date the review was posted would always be at the bottom of the HTML structure, I would search and filter the text nodes in between in order to determine what they were. I then mapped these values to a JSON object and return a list of these JSON objects for processing.</td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_beers.js">scrape_beers.js</a></td>
+                <td>This script would query my database and utilize the scrape_beer_html.js module to scrape beer reviews as well as beer descriptions and availability from Beer Advocate. Once the desired information was scraped, it would be saved to a Postgres database.<br><br> I set up this script to prioritize scraping beers closest to Southern California that did not have reviews on my database. This was to help with at least</td>
             </tr>
             <tr>
-                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_beers.js">scrape_beers.js</a></td>
-                <td>This script would query my database and utilize the scrape_beer_html.js module to scrape beer reviews as well as beer descriptions and availability from Beer Advocate. Once the desired information was scraped, it would be saved to a Postgres database.<br><br> I set up this script to prioritize scraping beers closest to Southern California.</td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_beer_html.js">scrape_beer_html.js</a></td>
+                <td>This script contains a module I wrote for scraping beer review scores with and without review text from Beer Advocate.<br><br>The structure of the HTML for these reviews was incredibly difficult to scrape given that some reviews only had an overall score, a set of scores, or scores with a text review. Additionally, when review text was present, it was structured between elements which makes it difficult to scrape without getting text from other elements within the HTML.<br><br>While using <a href="https://en.wikipedia.org/wiki/XPath">XPath selectors</a> is a standard work around, the variable nature of the HTML structure made it problematic to utilize.<br><br>My work around was to grab the text in a way that I could preserve the original structure of the HTML and convert the text nodes into a list/array. Because the overall score would always be at the top and the username and the date the review was posted would always be at the bottom of the HTML structure, I would search and filter the text nodes in between in order to determine what they were. I then mapped these values to a JSON object and return a list of these JSON objects for processing.</td>
             </tr>
         </table>
     </li>
@@ -410,8 +412,8 @@ I obtained publicly available datasets from [ data.world ](https://data.world) a
 Scrubbing data is still *technically* in process. Areas that need to be improved are as follows:
 
 1. All of the text data should be cleaned up to use UTF8. This is incredibly evident with the beer style descriptions as they will sometimes appear corrupted when working in pandas. This is less evident when working with data on Postgres directly.
-2. There are is some level of duplicated data within the reviews. I have done my best to address this as much as possible; however, I have identified at least 125 beers with slightly more reviews in the database than they should.
-3. Scrubbing and merging of Datasets from [data.world](https://data.world) are covered in [this notebook](./notebooks/Joining Datasets.ipynb)
+2. There are is some level of duplicated data within the reviews. I have done my best to address this as much as possible (); however, I have identified at least 125 beers with slightly more reviews in the database than they should.
+3. Scrubbing and merging of Datasets from [data.world](https://data.world) are covered in [this notebook](notebooks/Joining Datasets.ipynb)
 
 ### 4. Exploring data
 
