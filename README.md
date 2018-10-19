@@ -1,11 +1,5 @@
 # Brew Recommender
 
-[Current progress is located here](https://warm-plateau-97950.herokuapp.com/).
-
-[Application Github is located here](https://github.com/rajangdavis/ba_scrape)
-
-## Data Science Opportunity
-
 Craft beer sales for 2017 resulted in [$26 billion dollars in total sales in the United States alone](https://www.statista.com/topics/1806/craft-beer-in-the-us/).
 
 Because of this growing trend, the number of breweries has steadily [increased 15.5% over the past 6 years](https://www.brewersassociation.org/statistics/number-of-breweries/).
@@ -15,8 +9,8 @@ As the number of breweries increases, the ability for consumers to make decision
 To me, providing good, *actionable* recommendations for beer is crucial for alleviating this fatigue. 
 
 [There is prior work with beer recommendation systems](http://www.recommend.beer/analysis/); however, providing a recommendation system that can recommend beers a user may like from breweries that are near by adds tremendous value in that a user can act on the recommendation provided.
-    
-## Technical Report
+
+In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvocate.com) reviews, brewery and beer information, and GPS data to build such a system. The repo for the application, scraping, and database code for this application is located [here](https://github.com/rajangdavis/ba_scrape).
 
 ### 1. Technologies used:
 1. Node JS:
@@ -29,7 +23,7 @@ To me, providing good, *actionable* recommendations for beer is crucial for alle
     1. pandas
     2. sklearn
     3. sqlalchemy
-    4. numpy
+    4. numpy    
     5. matplotlib
 3. Bash
 4. Postgres
@@ -37,13 +31,15 @@ To me, providing good, *actionable* recommendations for beer is crucial for alle
 6. Heroku
 7. jq
 
+
+
 ### 2. Data Dictionary
 
 ##### Brewery features:
 <table>
     <tr>
         <th>Features</th>
-        <th>What it represents</th>
+        <th>Description</th>
     </tr>
     <tr>
         <td>id</td>
@@ -87,7 +83,7 @@ To me, providing good, *actionable* recommendations for beer is crucial for alle
     </tr>
     <tr>
         <td>features</td>
-        <td></td>
+        <td>This is a list of attributes that a brewery may have. </td>
     </tr>
     <tr>
         <td>ba_link</td>
@@ -134,31 +130,121 @@ To me, providing good, *actionable* recommendations for beer is crucial for alle
 </table>
 
 ##### Beer features:
-id: ID of Beer within the database
-name
-brewery_id
-style_id
-ba_link
-brewery_link
-style_link
-ba_availability
-ba_description
-abv
-rating_counts
-total_score
+<table>
+    <tr>
+        <th>Features</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>brewery_id</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>style_id</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ba_link</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>brewery_link</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>style_link</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ba_availability</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ba_description</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>abv</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>rating_counts</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>total_score</td>
+        <td></td>
+    </tr>
+
+
+</table>
 
 
 ##### Review features:
-id: ID of Review within the database
-beer_id
-review_overall
-review_taste
-review_aroma
-review_palate
-review_appearance
-review_text
-review_profilename
-review_time
+<table>
+    <tr>
+        <th>Features</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>beer_id</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>review_overall</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>review_taste</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>review_aroma</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>review_palate</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>review_appearance</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>review_text</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>review_profilename</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>review_time</td>
+        <td></td>
+    </tr>    
+</table>
+
+
+
+
+
+
+
+
+
+
 
 
 ### 1. Obtaining data
