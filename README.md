@@ -28,7 +28,7 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
 3. Bash - I used bash for building my database both in development and in production. A log of commands use can be found [here](https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/model_commands_and_relationships.txt)
 4. [Postgres](https://www.postgresql.org/) - I used Postgres for my relational database as I have used it many times; however, this has been that largest implementation that I have worked with.
 5. [PostGIS](https://postgis.net/) - I used PostGIS, a Postgres extension, for creatin
-6. [Heroku](https://heroku.com) - I used Heroku for hosting and deploying my database and as well as for my application that powers the recommendation process.
+6. [Heroku](https://heroku.com) - I used Heroku for hosting and deploying my database and as well as for my application that powers the recommendation system that I am currently building.
 
 ## 2. Data Dictionary
 
