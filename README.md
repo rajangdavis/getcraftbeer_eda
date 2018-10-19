@@ -31,12 +31,12 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
 
 ## 2. Data Dictionary
 
-The dataset was normalized into 4 tables:
+The dataset was normalized into 4 tables on a Postgres server:
 
-1. Breweries - 7,232 breweries from the United States
-2. Beer Styles - 112 styles of beer
-3. Beers - 197,474 beers 
-4. Reviews -  2,202,977 beers reviews - 656,143 with text
+1. **Breweries** - 7,232 breweries from the United States
+2. **Beer** Styles - 112 styles of beer
+3. **Beers** - 197,474 beers 
+4. **Reviews** -  2,202,977 beers reviews - 656,143 with text
 
 ### Brewery features:
 <table>
