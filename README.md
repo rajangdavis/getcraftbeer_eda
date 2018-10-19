@@ -447,12 +447,13 @@ SELECT 'a:1 fat:2 cat:3 sat:4 on:5 a:6 mat:7 and:8 ate:9 a:10 fat:11 rat:12'::ts
 The benefit of fulltext search for architecting a recommendation system is two-fold:
 1. The ability to search text within locally reviewed breweries to limit the search space of a user to terms that the user wishes to match against.
 
-2. Provides the basis for calculating Cosine Simularity and Term Frequency Inverse Document Frequency. Here are python and node examples of how Cosine Simularity can be calculated using ts_vectors:
+2. Provides the basis for calculating Cosine Simularity and Term Frequency Inverse Document Frequency. Here is a python example of how Cosine Simularity can be calculated using ts_vectors:
 ```python
 # https://stackoverflow.com/questions/41827983/right-way-to-calculate-the-cosine-similarity-of-two-word-frequency-dictionaries
 import math
 # borrowed from
 # https://stackoverflow.com/questions/41827983/right-way-to-calculate-the-cosine-similarity-of-two-word-frequency-dictionaries
+# This performs cosine similarity calculations with dictionaries
 def cosine_dic(dic1,dic2):
     numerator = 0
     dena = 0
@@ -473,7 +474,7 @@ review_text_vectors = [
 "'ale':49 'almost':6 'amber':4 'bad':24 'basic':46 'bubbl':12 'carbon':9 'citrus':19,30 'complex':37 'consequ':14 'drink':65 'easi':63 'floral':21 'get':29 'go':57 'hop':22 'ipa':53 'isn':34 'lace':16 'line':43 'lot':56 'much':36 'nose':17 'opaqu':3 'orang':31 'pale':48 'pour':1 'rather':50 'simpl':27 'specif':32 'starter':47 'tast':25 'virtual':10 'visibl':8"
 ]
 
-# this woa made to parse teh dicioinaries
+# this was made to convert the strings into dictionaries
 def clean_vectors(review_text_vectors):
     count_dicts = []
     for rtv in review_text_vectors:
@@ -502,7 +503,7 @@ print(matrix)
 
 By transforming ts_vectors into strings and then dictionaries, calculating text simularities between reviews can be efficiently calculated without storing redudant information.
 
-I am planning on revealing a prototype on 10/22 that will layer full-text search,  cosine simularities of scores, cosine simularities of count vectors, cosine simularities with term frequency inverse document frequency factored in. The link to the prototype can be found [here](https://shielded-brushlands-72807.herokuapp.com/).
+I am planning on revealing a working prototype on 10/22 that will layer full-text search,  cosine simularities of scores, cosine simularities of count vectors, cosine simularities with term frequency inverse document frequency factored in. The link to the prototype can be found [here](https://shielded-brushlands-72807.herokuapp.com/).
 
 
 ### 6. Further Exploration
