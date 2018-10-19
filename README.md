@@ -28,16 +28,15 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
 4. [Postgres](https://www.postgresql.org/) - I used Postgres for my relational database as I have used it many times; however, this has been that largest implementation that I have worked with.
 5. [PostGIS](https://postgis.net/) - I used PostGIS, a Postgres extension, for creatin
 6. [Heroku](https://heroku.com) - I used Heroku for hosting my database and I will use this for my application
-7. [jq](https://stedolan.github.io/jq/) - I used jq for cleaning up some of the JSON data and for some data wrangling 
 
 ## 2. Data Dictionary
 
 The dataset was normalized into 4 tables:
 
-1. Breweries -  
-2.
-3.
-4.
+1. Breweries - 7,232 breweries from the United States.
+2. Beer Styles - 112 styles of beer
+3. Beers - 197,474 beers
+4. Reviews -  2,202,977 beers reviews - 656,143 with text
 
 ### Brewery features:
 <table>
@@ -95,8 +94,6 @@ The dataset was normalized into 4 tables:
     </tr>
 </table>
 
-
-
 ### Beer Style features:
 <table>
     <tr>
@@ -105,11 +102,11 @@ The dataset was normalized into 4 tables:
     </tr>
     <tr>
         <td>id</td>
-        <td></td>
+        <td>The id of the beer style in my database</td>
     </tr>
     <tr>
         <td>name</td>
-        <td></td>
+        <td>The name of the beer style in my database</td>
     </tr>
     <tr>
         <td>ba_link</td>
@@ -121,7 +118,7 @@ The dataset was normalized into 4 tables:
     </tr>
     <tr>
         <td>ibu_range</td>
-        <td>This is the range of bitterness measured in (Internation Bitterness Units)[https://en.wikipedia.org/wiki/Beer_measurement#Bitterness] for the style of beer</td>
+        <td>This is the range of bitterness measured in <a href="https://en.wikipedia.org/wiki/Beer_measurement#Bitterness">Internation Bitterness Units</a> for the style of beer</td>
     </tr>
     <tr>
         <td>glassware</td>
@@ -180,7 +177,6 @@ The dataset was normalized into 4 tables:
         <td>This is the overall score of the beer as supplied on Beer Advocate</td>
     </tr>
 </table>
-
 
 ### Review features:
 <table>
@@ -414,13 +410,17 @@ I obtained publicly available datasets from [ data.world ](https://data.world) a
 
 ### 3. Scrubbing data
 
-Scrubbing data is still technically in process; however, from the data.world datasets, I removed null values and 
+Scrubbing data is still *technically* in process. Areas that need to be improved are as follows:
 
-### 3. Exploring data
+1. All of the text data should be cleaned up to use UTF8. This is incredibly evident with the beer style descriptions.
+2. There are is some level of duplicated data within the reviews. I have done my best to address this as much as possible; however, I have identified at least 125 beers with slightly more reviews in the database than they should.
+3. 
 
-### 4. Modeling data
+### 4. Exploring data
 
-### 5. Interpreting data
+### 5. Modeling data
+
+### 6. Interpreting data
 
 ### 6. Further Exploration
     - Looking at network effects
