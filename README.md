@@ -1,4 +1,4 @@
-# getcraftbeer
+# getcraftbeer - a recommender system for local craft beer
 
 Craft beer sales for 2017 resulted in [$26 billion dollars in total sales in the United States alone](https://www.statista.com/topics/1806/craft-beer-in-the-us/).
 
@@ -31,6 +31,13 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
 7. [jq](https://stedolan.github.io/jq/) - I used jq for cleaning up some of the JSON data and for some data wrangling 
 
 ## 2. Data Dictionary
+
+The dataset was normalized into 4 tables:
+
+1. Breweries -  
+2.
+3.
+4.
 
 ### Brewery features:
 <table>
@@ -229,9 +236,9 @@ I obtained publicly available datasets from [ data.world ](https://data.world) a
 <br>
 <br>Here is a break down of the datasets and the scripts I used for scraping beer advocate data:
 <ol>
-    <li>Datasets from [data.world](data.world):
+    <li>Datasets from <a href="https://data.world">data.world</a>:
         <ol>
-            <li>[1.5 million reviews from Beer Advocate with scores only](https://data.world/socialmediadata/beeradvocate)
+            <li><a href="https://data.world/socialmediadata/beeradvocate">1.5 million reviews from Beer Advocate with scores only</a>
                 <table>
                     <tr>
                         <th>Features</th>
@@ -292,7 +299,7 @@ I obtained publicly available datasets from [ data.world ](https://data.world) a
                 </table>
             </li>
             <li>
-                [528,870 Reviews from Beer Advocate some of which had text reviews](https://data.world/petergensler/beer-advocate-reviews)
+                <a href="https://data.world/petergensler/beer-advocate-reviews">528,870 Reviews from Beer Advocate some of which had text reviews</a>
                 <table>
                     <tr>
                         <th>Features</th>
@@ -355,7 +362,7 @@ I obtained publicly available datasets from [ data.world ](https://data.world) a
         </ol>
     </li>
     <li>
-        I scraped [Beer Advocate](beeradvocate.com) using the [axios](https://www.npmjs.com/package/axios) and [cheerio](https://cheerio.js.org/) libraries from the NodeJS ecosystem. [Scripts are located here](https://github.com/rajangdavis/ba_scrape/tree/master/scrape_extract_scripts). Here is a brief explanation of what each script does:
+        I scraped <a href="beeradvocate.com">Beer Advocate</a> using the <a href="https://www.npmjs.com/package/axios">axios</a> and <a href="https://cheerio.js.org/">cheerio</a> libraries from the NodeJS ecosystem. <a href="https://github.com/rajangdavis/ba_scrape/tree/master/scrape_extract_scripts">Scripts are located here</a>. Here is a brief explanation of what each script does:
         <table>
             <tr>
                 <th>Script Name</th>
