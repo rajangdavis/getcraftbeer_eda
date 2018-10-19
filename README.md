@@ -1,4 +1,4 @@
-# Brew Recommender
+# getcraftbeer
 
 Craft beer sales for 2017 resulted in [$26 billion dollars in total sales in the United States alone](https://www.statista.com/topics/1806/craft-beer-in-the-us/).
 
@@ -8,29 +8,27 @@ As the number of breweries increases, the ability for consumers to make decision
 
 To me, providing good, *actionable* recommendations for beer is crucial for alleviating this fatigue. 
 
-[There is prior work with beer recommendation systems](http://www.recommend.beer/analysis/); however, providing a recommendation system that can recommend beers a user may like from breweries that are near by adds tremendous value in that a user can act on the recommendation provided.
+[There is prior work with beer recommendation systems](http://www.recommend.beer/analysis/); however, providing a recommendation system that can recommend beers a user may like from breweries that are near adds tremendous value in that a user can act on the recommendation provided.
 
 In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvocate.com) reviews, brewery and beer information, and GPS data to build such a system. The repo for the application, scraping, and database code for this application is located [here](https://github.com/rajangdavis/ba_scrape).
 
 ## 1. Technologies used:
 1. Node JS:
-    1. [axios](https://www.npmjs.com/package/axios)
-    2. [cheerio](https://www.npmjs.com/package/axio)
-    4. [Sequelize](http://docs.sequelizejs.com/)
-    5. [Express](https://expressjs.com/)
+    1. [axios](https://www.npmjs.com/package/axios) - This was used for making http requests for scraping Beer Advocate
+    2. [cheerio](https://www.npmjs.com/package/axio) - This was used for scraping HTML from Beer Advocate
+    3. [Sequelize](http://docs.sequelizejs.com/) - This is an Object Relational Modeler and Command Line Interface for using Node with Postgres
+    4. [Express](https://expressjs.com/) - This is for making the my database remotely accessible
 2. Python
-    1. [pandas](https://pandas.pydata.org/)
-    2. [sklearn](http://scikit-learn.org/stable/)
-    3. [sqlalchemy](https://www.sqlalchemy.org/)
-    4. [numpy](http://www.numpy.org/)
-    5. [matplotlib](https://matplotlib.org/)
-3. Bash
-4. Postgres
-5. PostGIS
+    1. [pandas](https://pandas.pydata.org/) - This was used for data scrubbing and exploratory data analysis
+    2. [sklearn](http://scikit-learn.org/stable/) - This was used for interpreting the strength of IPA's, the most dominant style in my dataset, in classifying reviews.
+    3. [sqlalchemy](https://www.sqlalchemy.org/) - This was used for interacting with my Postgres Database within pandas
+    4. [numpy](http://www.numpy.org/) - This was used for calculations within my Juptyer notebooks
+    5. [matplotlib](https://matplotlib.org/) - This was used for data visualization within my notebooks
+3. Bash - I used bash for building my database both in development and in production. A log of commands use can be found [here](https://github.com/rajangdavis/ba_scrape/blob/master/model_commands_and_relationships.txt)
+4. [Postgres](https://www.postgresql.org/) - I used Postgres for my relational database as I have used it many times; however, this has been that largest implementation that I have worked with.
+5. [PostGIS](https://postgis.net/) - I used PostGIS, a Postgres extension, for creatin
 6. Heroku
 7. jq
-
-
 
 ## 2. Data Dictionary
 
