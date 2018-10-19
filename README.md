@@ -412,9 +412,9 @@ I obtained publicly available datasets from [ data.world ](https://data.world) a
 
 Scrubbing data is still *technically* in process. Areas that need to be improved are as follows:
 
-1. All of the text data should be cleaned up to use UTF8. This is incredibly evident with the beer style descriptions while being investigated with pandas.
+1. All of the text data should be cleaned up to use UTF8. This is incredibly evident with the beer style descriptions as they will sometimes appear corrupted when working in pandas. This is less evident when working with data on Postgres directly.
 2. There are is some level of duplicated data within the reviews. I have done my best to address this as much as possible; however, I have identified at least 125 beers with slightly more reviews in the database than they should.
-3. Scrubbing of Datasets from [data.world](https://data.world)
+3. Scrubbing and merging of Datasets from [data.world](https://data.world) are covered in [this notebook](./notebooks/Joining Datasets.ipynb)
 
 ### 4. Exploring data
 
