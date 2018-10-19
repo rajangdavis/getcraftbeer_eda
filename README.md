@@ -12,19 +12,18 @@ To me, providing good, *actionable* recommendations for beer is crucial for alle
 
 In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvocate.com) reviews, brewery and beer information, and GPS data to build such a system. The repo for the application, scraping, and database code for this application is located [here](https://github.com/rajangdavis/ba_scrape).
 
-### 1. Technologies used:
+## 1. Technologies used:
 1. Node JS:
-    1. axios
-    2. cheerio
-    3. fs
-    4. Sequelize
-    5. Express
+    1. [axios](https://www.npmjs.com/package/axios)
+    2. [cheerio](https://www.npmjs.com/package/axio)
+    4. [Sequelize](http://docs.sequelizejs.com/)
+    5. [Express](https://expressjs.com/)
 2. Python
-    1. pandas
-    2. sklearn
-    3. sqlalchemy
-    4. numpy    
-    5. matplotlib
+    1. [pandas](https://pandas.pydata.org/)
+    2. [sklearn](http://scikit-learn.org/stable/)
+    3. [sqlalchemy](https://www.sqlalchemy.org/)
+    4. [numpy](http://www.numpy.org/)
+    5. [matplotlib](https://matplotlib.org/)
 3. Bash
 4. Postgres
 5. PostGIS
@@ -33,9 +32,9 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
 
 
 
-### 2. Data Dictionary
+## 2. Data Dictionary
 
-##### Brewery features:
+### Brewery features:
 <table>
     <tr>
         <th>Features</th>
@@ -87,13 +86,13 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
     </tr>
     <tr>
         <td>ba_link</td>
-        <td>   </td>
+        <td>This is the URL for the brewery on Beer Advocate</td>
     </tr>
 </table>
 
 
 
-##### Beer Style features:
+### Beer Style features:
 <table>
     <tr>
         <th>Features</th>
@@ -109,27 +108,27 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
     </tr>
     <tr>
         <td>ba_link</td>
-        <td></td>
+        <td>This is the style for the brewery on Beer Advocate</td>
     </tr>
     <tr>
         <td>abv_range</td>
-        <td></td>
+        <td>This is the range of ABV for the style of beer</td>
     </tr>
     <tr>
         <td>ibu_range</td>
-        <td></td>
+        <td>This is the range of bitterness measured in (Internation Bitterness Units)[https://en.wikipedia.org/wiki/Beer_measurement#Bitterness] for the style of beer</td>
     </tr>
     <tr>
         <td>glassware</td>
-        <td></td>
+        <td>This is the recommended glassware for the style of beer</td>
     </tr>
     <tr>
         <td>description</td>
-        <td></td>
+        <td>This is the description of the beer</td>
     </tr>
 </table>
 
-##### Beer features:
+### Beer features:
 <table>
     <tr>
         <th>Features</th>
@@ -137,58 +136,48 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
     </tr>
     <tr>
         <td>id</td>
-        <td></td>
+        <td>This is the id of the beer in my database</td>
     </tr>
     <tr>
         <td>name</td>
-        <td></td>
+        <td>This is the name of the beer</td>
     </tr>
     <tr>
         <td>brewery_id</td>
-        <td></td>
+        <td>This is the id of brewery within my database that makes the beer</td>
     </tr>
     <tr>
         <td>style_id</td>
-        <td></td>
+        <td>This is the id of style within my database that the beer is categorized under</td>
     </tr>
     <tr>
         <td>ba_link</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>brewery_link</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>style_link</td>
-        <td></td>
+        <td>This is the URL for the beer on Beer Advocate</td>
     </tr>
     <tr>
         <td>ba_availability</td>
-        <td></td>
+        <td>This is availability of the beer as supplied on Beer Advocate</td>
     </tr>
     <tr>
         <td>ba_description</td>
-        <td></td>
+        <td>This is description of the beer as supplied on Beer Advocate</td>
     </tr>
     <tr>
         <td>abv</td>
-        <td></td>
+        <td>This is the ABV the beer as supplied on Beer Advocate</td>
     </tr>
     <tr>
         <td>rating_counts</td>
-        <td></td>
+        <td>This is the number of reviews as supplied on Beer Advocate</td>
     </tr>
     <tr>
         <td>total_score</td>
-        <td></td>
+        <td>This is the overall score of the beer as supplied on Beer Advocate</td>
     </tr>
-
-
 </table>
 
 
-##### Review features:
+### Review features:
 <table>
     <tr>
         <th>Features</th>
@@ -196,58 +185,47 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
     </tr>
     <tr>
         <td>id</td>
-        <td></td>
+        <td>This is the id of my review as supplied on Beer Advocate</td>
     </tr>
     <tr>
         <td>beer_id</td>
-        <td></td>
+        <td>This is the id of the beer that the review is written for on Beer Advocate</td>
     </tr>
     <tr>
         <td>review_overall</td>
-        <td></td>
+        <td>This is the overall score for a beer on a review</td>
     </tr>
     <tr>
         <td>review_taste</td>
-        <td></td>
+        <td>This is the taste score for a beer on a review</td>
     </tr>
     <tr>
         <td>review_aroma</td>
-        <td></td>
+        <td>This is the smell score for a beer on a review</td>
     </tr>
     <tr>
         <td>review_palate</td>
-        <td></td>
+        <td>This is the mouth feel score for a beer on a review</td>
     </tr>
     <tr>
         <td>review_appearance</td>
-        <td></td>
+        <td>This is the appearance score for a beer on a review</td>
     </tr>
     <tr>
         <td>review_text</td>
-        <td></td>
+        <td>This is the review text for a beer on a review</td>
     </tr>
     <tr>
         <td>review_profilename</td>
-        <td></td>
+        <td>This is the profile name of the user that wrote the review</td>
     </tr>
     <tr>
         <td>review_time</td>
-        <td></td>
+        <td>This is the time the review was created</td>
     </tr>    
 </table>
 
-
-
-
-
-
-
-
-
-
-
-
-### 1. Obtaining data
+## 2. Obtaining data
 
 I obtained publicly available datasets from [data.world](data.world) and scraped Beer Advocate for beer, brewery, beer style, and review information. I acquired geographic information using the addresses provided by Beer Advocate and utilizing the [OpenCage Geocoder API](https://opencagedata.com/api) for deriving coordinates for each brewery.
 <br>
@@ -429,7 +407,7 @@ I obtained publicly available datasets from [data.world](data.world) and scraped
     </li>
 </ol>
 
-### 2. Scrubbing data
+### 3. Scrubbing data
 
 Scrubbing data is still technically in process; however, from the data.world datasets, I removed null values and 
 
@@ -440,10 +418,7 @@ Scrubbing data is still technically in process; however, from the data.world dat
 ### 5. Interpreting data
 
 ### 6. Further Exploration
-Looking at network effects
-- **10/10** - Build front-end or use Twilio
+    - Looking at network effects
     - Do a sanity check to make sure that you can deliver your project on time
-
-- **10/14** - Make Database Accessible from outside resources
     - Build a REST API
     - Build a GraphQL endpoint
