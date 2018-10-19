@@ -24,7 +24,7 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
     3. [sqlalchemy](https://www.sqlalchemy.org/) - This was used for interacting with my Postgres Database within pandas
     4. [numpy](http://www.numpy.org/) - This was used for calculations within my Juptyer notebooks
     5. [matplotlib](https://matplotlib.org/) - This was used for data visualization within my notebooks
-3. Bash - I used bash for building my database both in development and in production. A log of commands use can be found [here](https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/model_commands_and_relationships.txt)
+3. Bash - I used bash for building my database both in development and in production. A log of commands use can be found [here](https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/model_commands_and_relationships.txt)
 4. [Postgres](https://www.postgresql.org/) - I used Postgres for my relational database as I have used it many times; however, this has been that largest implementation that I have worked with.
 5. [PostGIS](https://postgis.net/) - I used PostGIS, a Postgres extension, for creatin
 6. [Heroku](https://heroku.com) - I used Heroku for hosting my database and I will use this for my application
@@ -354,50 +354,50 @@ I obtained publicly available datasets from [ data.world ](https://data.world) a
         </ol>
     </li>
     <li>
-        I scraped <a href="beeradvocate.com">Beer Advocate</a> using the <a href="https://www.npmjs.com/package/axios">axios</a> and <a href="https://cheerio.js.org/">cheerio</a> libraries from the NodeJS ecosystem. <a href="https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts">Scripts are located here</a>. Here is a brief explanation of what each script does:
+        I scraped <a href="beeradvocate.com">Beer Advocate</a> using the <a href="https://www.npmjs.com/package/axios">axios</a> and <a href="https://cheerio.js.org/">cheerio</a> libraries from the NodeJS ecosystem. <a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts">Scripts are located here</a>. Here is a brief explanation of what each script does:
         <table>
             <tr>
                 <th>Script Name</th>
                 <th>What does it do</th>
             </tr>
             <tr>
-                <td><a href="https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_ba.js">scrape_ba.js</a></td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_ba.js">scrape_ba.js</a></td>
                 <td>This was the initial script I created to scrape Beer Advocate.com. I grabbed all of the <a href="https://www.beeradvocate.com/place/directory/0/US/">places by state hyperlinks</a>). From some investigation, I knew that appending '?c_id=US&s_id=[STATE]&brewery=Y' to the URL would filter the places by breweries by state.
                 <br><br>Once the brewery list for a state is retrieved, I have the script look at the number of results and calculate the number of subsequent pages to scrape. The script then grabs all of the brewery location information for each brewery and number of beers by state.
                 </td>
             </tr>
             <tr>
-                <td><a href="https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_brewery_page.js">scrape_brewery_page.js</a></td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_brewery_page.js">scrape_brewery_page.js</a></td>
                 <td>After getting the brewery information, this helped me calculate roughly how many beers I will need to scrape.<br><br>
                 Each brewery page will have a list of all of it's beers by name, style, percentage of alcohol (ABV), number of ratings, and overall score.
                 <br><br>After I scraped each page, I created a unique JSON file for each brewery. This was to get around git hub file upload limits.</td>
             </tr>
             <tr>
-                <td><a href="https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/extract_style.js">extract_style.js</a></td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/extract_style.js">extract_style.js</a></td>
                 <td>This script looked though all of the brewery JSON files and extracted the styles for each beer. I then streamed the unique styles to the terminal and piped the output to a JSON file</td>
             </tr>
             <tr>
-                <td><a href="https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_styles.js">scrape_styles.js</a></td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_styles.js">scrape_styles.js</a></td>
                 <td>From the styles JSON file, I was able to generate a list of links to scrape the descriptions for all of the styles within my dataset. I scraped the style descriptions for each style present in my dataset.</td>
             </tr>
             <tr>
-                <td><a href="https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/extract_flat_beer.js">extract_flat_beer.js</a></td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/extract_flat_beer.js">extract_flat_beer.js</a></td>
                 <td>This script goes through all of the brewery JSON files and create a flat JSON file of all of the beer JSON objects. This for me to be able to push the data into a database.</td>
             </tr>
             <tr>
-                <td><a href="https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/extract_rating_counts.js">extract_rating_counts.js</a></td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/extract_rating_counts.js">extract_rating_counts.js</a></td>
                 <td>This script reads through my brewery JSON files and generates summary statistics regarding the total number of reviews that I could possibly scrape.</td>
             </tr>
             <tr>
-                <td><a href="https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_breweries_lat_long.js">scrape_breweries_lat_long.js</a></td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_breweries_lat_long.js">scrape_breweries_lat_long.js</a></td>
                 <td>This script utilized the <a href="https://opencagedata.com/api">OpenCage Geocoder API</a> to </td>
             </tr>
             <tr>
-                <td><a href="https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_beer_html.js">scrape_beer_html.js</a></td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_beer_html.js">scrape_beer_html.js</a></td>
                 <td>This script contains a module I wrote for scraping beer review scores with and without review text from Beer Advocate.<br><br>The structure of the HTML for these reviews was incredibly difficult to scrape given that some reviews only had an overall score, a set of scores, or scores with a text review. Additionally, when review text was present, it was structured between elements which makes it difficult to scrape without getting text from other elements within the HTML.<br><br>While using <a href="https://en.wikipedia.org/wiki/XPath">XPath selectors</a> is a standard work around, the variable nature of the HTML structure made it problematic to utilize.<br><br>My work around was to grab the text in a way that I could preserve the original structure of the HTML and convert the text nodes into a list/array. Because the overall score would always be at the top and the username and the date the review was posted would always be at the bottom of the HTML structure, I would search and filter the text nodes in between in order to determine what they were. I then mapped these values to a JSON object and return a list of these JSON objects for processing.</td>
             </tr>
             <tr>
-                <td><a href="https://https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_beers.js">scrape_beers.js</a></td>
+                <td><a href="https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/scrape_extract_scripts/scrape_beers.js">scrape_beers.js</a></td>
                 <td>This script would query my database and utilize the scrape_beer_html.js module to scrape beer reviews as well as beer descriptions and availability from Beer Advocate. Once the desired information was scraped, it would be saved to a Postgres database.<br><br> I set up this script to prioritize scraping beers closest to Southern California.</td>
             </tr>
         </table>
