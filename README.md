@@ -420,9 +420,7 @@ As far as typing/data consistency is concerned, I am not too worried given that 
 
 ### 4. Exploring data
 
-Most of my EDA was performed using [Postgres directly](sql_queries.sql).
-Most of my EDA was performed using [Postgres directly](notebooks/Data%20Visualization.ipynb).
-Most of my EDA was performed using [Postgres directly](notebooks/Data%20Visualization.ipynb).
+Most of my EDA was performed using [Postgres directly](sql_queries.sql); however, I started looking at how to plot the beer varieties within a given area[Postgres directly](notebooks/Data%20Visualization.ipynb).
 
 ### 5. Recommendation System Architecture
 
