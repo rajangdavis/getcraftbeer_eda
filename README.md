@@ -33,9 +33,9 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
 
 The dataset was normalized into 4 tables:
 
-1. Breweries - 7,232 breweries from the United States.
+1. Breweries - 7,232 breweries from the United States
 2. Beer Styles - 112 styles of beer
-3. Beers - 197,474 beers
+3. Beers - 197,474 beers 
 4. Reviews -  2,202,977 beers reviews - 656,143 with text
 
 ### Brewery features:
@@ -118,7 +118,7 @@ The dataset was normalized into 4 tables:
     </tr>
     <tr>
         <td>ibu_range</td>
-        <td>This is the range of bitterness measured in <a href="https://en.wikipedia.org/wiki/Beer_measurement#Bitterness">Internation Bitterness Units</a> for the style of beer</td>
+        <td>This is the range of bitterness measured in <a href="https://en.wikipedia.org/wiki/Beer_measurement#Bitterness">International Bitterness Units</a> for the style of beer</td>
     </tr>
     <tr>
         <td>glassware</td>
@@ -126,7 +126,7 @@ The dataset was normalized into 4 tables:
     </tr>
     <tr>
         <td>description</td>
-        <td>This is the description of the beer</td>
+        <td>This is the description of the beer on Beer Advocate</td>
     </tr>
 </table>
 
