@@ -10,9 +10,10 @@ To me, providing good, *actionable* recommendations for beer is crucial for alle
 
 [There is prior work with beer recommendation systems](http://www.recommend.beer/analysis/); however, providing a recommendation system that can recommend beers a user may like from breweries that are near adds tremendous value in that a user can act on the recommendation provided.
 
-In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvocate.com) reviews, brewery and beer information, and GPS data to build such a system. The repo for the application, scraping, and database code for this application is located [here](https://github.comhttps://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/.
+In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvocate.com) reviews, brewery and beer information, and GPS data to build such a system. The repo for the application, scraping, and database code for this application is located [here](https://bitbucket.org/rajangdavis/getcraftbeer/src/heroku/).
 
 ## 1. Technologies used:
+
 1. Node JS:
     1. [axios](https://www.npmjs.com/package/axios) - This was used for making http requests for scraping Beer Advocate
     2. [cheerio](https://www.npmjs.com/package/axio) - This was used for scraping HTML from Beer Advocate
