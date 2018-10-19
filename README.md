@@ -417,12 +417,13 @@ Scrubbing data is still *technically* in process. Areas that need to be improved
 
 ### 4. Exploring data
 
+Most of my EDA was performed using [Postgres directly](sql_queries.sql).
+
 ### 5. Modeling data
 
 ### 6. Interpreting data
 
 ### 6. Further Exploration
-    - Looking at network effects
-    - Do a sanity check to make sure that you can deliver your project on time
+    - Looking at network model
     - Build a REST API
     - Build a GraphQL endpoint

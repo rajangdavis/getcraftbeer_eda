@@ -16,8 +16,8 @@ def make_local_recommendations(**kwargs):
     dimi = kwargs.get("distance_in_miles_input")
     ucbi = kwargs.get("user_chosen_beers_input")
     local_beers_query_string = local_beers_query_func(lli, dimi)
-    beers_input_string = beers_input_func(lli, dimi, ucbi)
-    local_beers_results = pd.read_sql(local_beers_query_string, con=engine)
+    beers_input_string, or_beer_query  = beers_input_func(lli, dimi, ucbi)
+    local_beers_results = pd.read_sql(local_beers_query_string, con=engine, params={"or_beer_query":or_beer_query})
     beers_input_results = pd.read_sql(beers_input_string, con=engine)
     local_beers_styles = local_beers_results[local_beers_results["style"].isin(set(beers_input_results["style"]))]['style'].unique()
     local_beers_matches = local_beers_results[local_beers_results["style"].isin(local_beers_styles)].dropna()
@@ -32,7 +32,6 @@ def make_local_recommendations(**kwargs):
     sim_matrix = cosine_similarity(beer_sim_mat_cubed, beer_sim_mat_cubed)
     return (pd.DataFrame(sim_matrix, index=beer_sim_mat.index, columns=beer_sim_mat.index))
     
-
 eric_yoo = make_local_recommendations(
     lat_long_input = (33.982707, -118.38276), 
     distance_in_miles_input = 10, 

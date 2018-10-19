@@ -1,23 +1,23 @@
 
 def beers_input_func(lli,dimi, beers):
     or_beer_query = " OR ".join([f"beers.name = '{beer}'" for beer in beers])
-    return f"""
-    SELECT 
-    beers.id AS beer_id,
-    beers.name as beer_name, 
-    styles.name as style,
-    AVG(reviews.review_overall) as overall,
-    AVG(reviews.review_appearance) as appearance,
-    AVG(reviews.review_aroma) as aroma,
-    AVG(reviews.review_taste) as taste,
-    AVG(reviews.review_palate) as palate,
-    COUNT(reviews.id)
-    FROM beers, reviews, styles 
-    WHERE beers.style_id = styles.id 
-    AND reviews.beer_id = beers.id 
-    AND ({or_beer_query})
-    GROUP BY beers.name, beers.id, styles.name;
-    """    
+    return (f"""
+        SELECT 
+        beers.id AS beer_id,
+        beers.name as beer_name, 
+        styles.name as style,
+        AVG(reviews.review_overall) as overall,
+        AVG(reviews.review_appearance) as appearance,
+        AVG(reviews.review_aroma) as aroma,
+        AVG(reviews.review_taste) as taste,
+        AVG(reviews.review_palate) as palate,
+        COUNT(reviews.id)
+        FROM beers, reviews, styles 
+        WHERE beers.style_id = styles.id 
+        AND reviews.beer_id = beers.id 
+        AND %(or_beer_query)s
+        GROUP BY beers.name, beers.id, styles.name;
+        """, or_beer_query)
 
 def count_vect_for_beer(beer):
     inner_query = f"""
