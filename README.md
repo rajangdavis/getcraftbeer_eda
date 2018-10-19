@@ -369,7 +369,7 @@ I obtained publicly available datasets from [ data.world ](https://data.world) a
                 <th>What does it do</th>
             </tr>
             <tr>
-                <td><a href=">https://github.com/rajangdavis/ba_scrape/tree/master/scrape_extract_scripts/scrape_ba.js">scrape_ba.js</a></td>
+                <td><a href="https://github.com/rajangdavis/ba_scrape/tree/master/scrape_extract_scripts/scrape_ba.js">scrape_ba.js</a></td>
                 <td>This was the initial script I created to scrape Beer Advocate.com. I grabbed all of the <a href="https://www.beeradvocate.com/place/directory/0/US/">places by state hyperlinks</a>). From some investigation, I knew that appending '?c_id=US&s_id=[STATE]&brewery=Y' to the URL would filter the places by breweries by state.
                 <br><br>Once the brewery list for a state is retrieved, I have the script look at the number of results and calculate the number of subsequent pages to scrape. The script then grabs all of the brewery location information for each brewery and number of beers by state.
                 </td>
