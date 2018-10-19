@@ -27,8 +27,8 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
 3. Bash - I used bash for building my database both in development and in production. A log of commands use can be found [here](https://github.com/rajangdavis/ba_scrape/blob/master/model_commands_and_relationships.txt)
 4. [Postgres](https://www.postgresql.org/) - I used Postgres for my relational database as I have used it many times; however, this has been that largest implementation that I have worked with.
 5. [PostGIS](https://postgis.net/) - I used PostGIS, a Postgres extension, for creatin
-6. Heroku
-7. jq
+6. [Heroku](https://heroku.com) - I used Heroku for hosting my database and I will use this for my application
+7. [jq](https://stedolan.github.io/jq/) - I used jq for cleaning up some of the JSON data and for some data wrangling 
 
 ## 2. Data Dictionary
 
@@ -225,7 +225,7 @@ In this regard, I have scraped and attained scraped [Beer Advocate.com](beeradvo
 
 ## 2. Obtaining data
 
-I obtained publicly available datasets from [data.world](data.world) and scraped Beer Advocate for beer, brewery, beer style, and review information. I acquired geographic information using the addresses provided by Beer Advocate and utilizing the [OpenCage Geocoder API](https://opencagedata.com/api) for deriving coordinates for each brewery.
+I obtained publicly available datasets from [ data.world ](https://data.world) and scraped Beer Advocate for beer, brewery, beer style, and review information. I acquired geographic information using the addresses provided by Beer Advocate and utilizing the [ OpenCage Geocoder API ](https://opencagedata.com/api) for deriving coordinates for each brewery.
 <br>
 <br>Here is a break down of the datasets and the scripts I used for scraping beer advocate data:
 <ol>
